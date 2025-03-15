@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+/* Base styles for all device sizes */
 body {
     display: flex;
     justify-content: center;
@@ -6,23 +8,30 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #a0a0a0;
+    font-family: 'Rubik', sans-serif;
 }
 
-/* Add a container for the game to center everything */
+/* Container for the game */
 #root {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
-/* Make the word input containers centered */
-input{
-    font-size: 40px;
-    width: 60px;
-    margin: 10px 1px;
+/* Input styles with responsive sizing */
+input {
+    font-size: clamp(24px, 5vw, 40px);
+    width: clamp(40px, 10vw, 60px);
+    height: clamp(40px, 10vw, 60px);
+    margin: clamp(5px, 1vw, 10px) 1px;
     border-radius: 5px;
+    text-align: center;
+    border: 2px solid #555;
+    box-sizing: border-box;
 }
 
 /* Center the word input rows */
@@ -31,172 +40,288 @@ div[onKeyDown] {
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 5px;
 }
 
-.correctPostion{
+.correctPostion {
     background-color: rgb(0, 247, 0);
 }
-.inWord{
+
+.inWord {
     background-color: yellow;
 }
-.notInWord{
+
+.notInWord {
     background-color: grey;
 }
-.greendot{
+
+.greendot {
     border-radius: 50%;
-    width: 30px;
-    font-size: 40px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: inline-block;
-    margin: 10px 5px;
+    width: clamp(20px, 5vw, 30px);
+    height: clamp(20px, 5vw, 30px);
+    font-size: clamp(24px, 5vw, 40px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: clamp(5px, 1vw, 10px) 5px;
 }
 
 .title-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(1rem, 4vw, 2rem) 0;
+    width: 100%;
 }
 
 .title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 4rem;
-  font-weight: 700;
-  background: linear-gradient(45deg, #FF9F1C, #FF4E50, #8B5CF6, #3B82F6);
-  background-size: 300% 300%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  margin: 0 0 0.8rem 0;
-  letter-spacing: 1px;
-  animation: gradient 8s ease infinite;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 700;
+    background: linear-gradient(45deg, #FF9F1C, #FF4E50, #8B5CF6, #3B82F6);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin: 0 0 clamp(0.4rem, 2vw, 0.8rem) 0;
+    letter-spacing: 1px;
+    animation: gradient 8s ease infinite;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .subtitle {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: #6366F1;
-  margin: 0;
-  text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+    font-weight: 400;
+    color: #6366F1;
+    margin: 0;
+    text-align: center;
 }
 
 @keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .rules-container {
-  display: flex;
-  justify-content: center;
-  padding: 1.5rem 0;
-  font-family: 'Rubik', sans-serif;
-  position: relative;
-  width: 100%;
-  margin: 2rem auto 0;
+    display: flex;
+    justify-content: center;
+    padding: clamp(1rem, 3vw, 1.5rem) 0;
+    font-family: 'Rubik', sans-serif;
+    position: relative;
+    width: 100%;
+    margin: clamp(1rem, 4vw, 2rem) auto 0;
 }
 
 .rules-card {
-  background-color: transparent;
-  backdrop-filter: blur(8px);
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  padding: 1.8rem 2.2rem;
-  max-width: 520px;
-  width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  margin: 0 auto;
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    padding: clamp(1rem, 3vw, 1.8rem) clamp(1.2rem, 4vw, 2.2rem);
+    max-width: 520px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .rule-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.2rem;
-  position: relative;
-  transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    margin-bottom: clamp(0.8rem, 2vw, 1.2rem);
+    position: relative;
+    transition: transform 0.2s ease;
 }
 
 .rule-item:hover {
-  transform: translateX(5px);
+    transform: translateX(5px);
 }
 
 .rule-item:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .color-box {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  margin-right: 20px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  position: relative;
-  overflow: hidden;
+    width: clamp(20px, 5vw, 28px);
+    height: clamp(20px, 5vw, 28px);
+    border-radius: 6px;
+    margin-right: clamp(10px, 4vw, 20px);
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
 }
 
 .color-box:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 50%);
 }
 
 .green {
-  background-color: #6aaa64;
+    background-color: #6aaa64;
 }
 
 .yellow {
-  background-color: #c9b458;
+    background-color: #c9b458;
 }
 
 .gray {
-  background-color: #787c7e;
+    background-color: #787c7e;
 }
 
 .rule-text {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: #2a2a2a;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+    margin: 0;
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    line-height: 1.6;
+    color: #2a2a2a;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .rule-text strong {
-  font-weight: 600;
-  background: linear-gradient(90deg, #444, #111);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+    font-weight: 600;
+    background: linear-gradient(90deg, #444, #111);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-/* Game over and game win components should be centered too */
+/* Game over and game win components */
 .game-over, .game-win {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .rules-card {
-    padding: 1.4rem 1.8rem;
-  }
+/* Small devices (phones) */
+@media (max-width: 480px) {
+    body {
+        align-items: flex-start;
+        padding-top: 10px;
+    }
+    
+    .rules-card {
+        padding: 1rem 1.2rem;
+    }
+    
+    .color-box {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    
+    .rule-text {
+        font-size: 0.85rem;
+    }
+    
+    input {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        margin: 4px 1px;
+    }
+    
+    .greendot {
+        width: 20px;
+        height: 20px;
+        font-size: 24px;
+        margin: 4px 4px;
+    }
+}
 
-  .color-box {
-    width: 24px;
-    height: 24px;
-  }
+/* Medium devices (tablets) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .rules-card {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .color-box {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .rule-text {
+        font-size: 0.95rem;
+    }
+    
+    input {
+        font-size: 32px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .greendot {
+        width: 24px;
+        height: 24px;
+        font-size: 32px;
+    }
+}
 
-  .rule-text {
-    font-size: 0.95rem;
-  }
+/* For very small height screens to prevent overflow */
+@media (max-height: 700px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .title {
+        font-size: 2rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .rules-container {
+        margin-top: 1rem;
+    }
+    
+    input {
+        margin: 4px 1px;
+    }
+}
+
+/* Support for dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+    }
+    
+    .rule-text {
+        color: #e0e0e0;
+        text-shadow: none;
+    }
+    
+    .rule-text strong {
+        background: linear-gradient(90deg, #ccc, #fff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    
+    input {
+        background-color: #333;
+        color: #fff;
+        border-color: #666;
+    }
+    
+    .game-over, .game-win {
+        background-color: rgba(40, 40, 40, 0.7);
+        color: #fff;
+    }
 }
